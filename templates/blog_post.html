@@ -1,0 +1,33 @@
+xXx PARENT=templates/base.html xXx
+xXx TITLE xXx
+    xXx LOOP post_meta dumb_meta xXx
+        xXx post_meta$title xXx
+    xXx BBL xXx
+xXx TTYL xXx
+xXx CONTENT xXx
+<div class="blog_container">
+    xXx LOOP post_meta dumb_meta xXx
+        <div class="language-bash content">
+            <h2 class="post_title">xXx post_meta$title xXx</h2>
+            <p>
+                <span class="author_name">xXx post_meta$date xXx by xXx post_meta$author xXx</span>
+                <span class="comment_count"><a href="/xXx post_meta$link xXx#disqus_thread">Comments</a></span>
+            </p>
+            xXx post_meta$content xXx
+        </div>
+        <!--
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'olegdbblog';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        -->
+    xXx BBL xXx
+</div>
+xXx TTYL xXx
