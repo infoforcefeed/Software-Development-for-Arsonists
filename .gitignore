@@ -1,4 +1,4 @@
 *.pyc
 *.swo
 *.swp
-built/static/*
+built/static
