@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-rsync -PazL built/* quinlan@infoforcefeed.org:/var/www/arson/
+rsync -PazL built/* ${USER}@infoforcefeed.org:/var/www/arson/
