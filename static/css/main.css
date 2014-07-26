@@ -5,6 +5,13 @@ html {
 code {
 	white-space: pre-wrap;
 }
+#bg_img {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: -15;
+	height: 1200px;
+}
 a {
 	text-decoration: none;
 	color: #EF7C7C;
