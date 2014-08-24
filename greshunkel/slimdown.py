@@ -9,6 +9,7 @@ class Slimdown(object):
         self.rules = [
             (r'\n\*(.*)' ,  self.ul_list),
             (r'````([^`]*)````' ,  r'<pre><code>\1</code></pre>'),
+            (r'>(.*)\n\n' ,  r'<blockquote>\1</blockquote>'),
             (r'`([^`]*)`' ,  r'<code>\1</code>'),
             (r'\[([^\[]+)\]\(([^\)]+)\)' ,  r'<a href=\2>\1</a>'),
             (r'\n(#+)(.*)',  self.header),
