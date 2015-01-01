@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+  ____ ____  _____ ____  _   _ _   _ _   _ _  _______ _
+ / ___|  _ \| ____/ ___|| | | | | | | \ | | |/ / ____| |
+| |  _| |_) |  _| \___ \| |_| | | | |  \| | ' /|  _| | |
+| |_| |  _ <| |___ ___) |  _  | |_| | |\  | . \| |___| |___
+ \____|_| \_\_____|____/|_| |_|\___/|_| \_|_|\_\_____|_____|
+
+Proudly generated with GRESHUNKEL, a static site generator for the dead inside.
+-->
+<html>
+    <head>
+        <title>Software Development for Arsonists - Ad-Hoc Rules for Maintainable Software
+</title>
+        <meta charset="UTF-8">
+        
+        <link rel="stylesheet" media="all" href="/static/css/main.css" />
+        
+    </head>
+    <body>
+        <img id="bg_img" src="/static/img/crane.svg" />
+        <div id="side_nav">
+            <img src="/static/img/logo.svg" />
+            <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/about.html">About</a>
+                </li>
+            </ul>
+        </div>
+        <div id="main_container">
+            <div class="blog_posts">
+<div class="language-bash content"><h2 class="post_title">Ad-Hoc Rules for Maintainable Software</h2><p><span class="author_name">2014-12-23 by Quinlan Pfiffer</span><!-- <span class="comment_count"><a href="/blog/0005_Maintainable_Software.html#disqus_thread">Comments</a></span> --></p><p>I recently read <a href=http://mikehadlow.blogspot.com/2014/12/the-lava-layer-anti-pattern.html>The Lava Layer Anti-Pattern</a>
+and it inspired me to try to write down some of the rules
+discovered over my short software career. Most of the time I joke about having
+no dependencies on a project, but a lot of the time it makes sense. There are a
+few things that I've been seeing repeated over the past year or so that I think
+are good ideas, so I'm going to attempt to write them down.
+<h2>1. Avoid side-effectful code</h2></p><p><blockquote> "You overloaded plus? What does plus do?"</blockquote>This one comes straight from the functional programming world, but can easily be
+applied to imperative languages as well. Side-effects are the bane of anyone
+trying to reason about your program, and reasoning about a large program you're
+trying to maintain is important. If you don't know what I mean by side-effects,
+see #5.
+<h2>2. Assume all code will outlive you, program for longevity and maintainability</h2></p><p>It is not uncommon to hear of decade-year old codebases that are still chugging
+in the background, critical yet unmaintainable. Rewrites would result in a huge
+expense and downtime that would be unavoidable. It is important to write your
+code in such a way that it can be easily maintained or replaced, if the need
+arises.</p><p>Hacks should be avoided. Every <code>TODO</code> and <code>temporary fix</code> you leave in the codebase
+is a stain on your permanent record. This is kind of an open-ended item, because
+it can effect all parts of the stack, from database (relational? K/V?) choice to
+programming language (Shorter dev cycles? Faster execution speed? Portability?)
+so I leave the interpretation up to you.
+<h2>3. Typed inputs and outputs on functions</h2></p><p>Another one out of the FP world. This is purely for the people
+reading your code (this could be you!). Functions that have no side-effects 
+and clear signatures can be easily reasoned about. Pass stuff in, get stuff out.
+It also makes testing and linting much, much easier.
+<h2>4. Immute as much as possible</h2></p><p>Put <code>const</code> on everything. Touch only as much memory as you have to. Return new
+objects instead of modified ones. This is one of those things that can help in
+tracking down or eliminating bugs. The fewer functions that can modify
+state, the better. Which leads me to...
+<h2>5. DON'T MUTATE STATE</h2></p><p>I first read this in the <a href=http://shaffner.us/cs/papers/tarpit.pdf>Out of the Tar Pit</a>
+paper by Moseley and Marks is probably one of the most important papers you'll
+ever read. The go over state, the false security of unit testing, why state is
+the enemy of the programmer and all sorts of other little tidbits that will help
+you write better software.</p><p>Mutating state is the number one cause of problems, because it effects how
+everything else in the program that is involved with that state acts. The Tarpit
+paper goes over this much better than I ever could.
+<h2>6. Avoid dependencies as much as possible</h2></p><p>This is sort of a political philosphy, and most people will fall on the other
+side of the fence than I, but I've seen too many Django packages fail to work with the
+software stack I have after a handful of years because they haven't been kept up
+to date.</p><p>Dependencies, like every other piece of software, have to be kept up to date.
+Most dependencies do not follow rule #2, however, and will eventually fall
+apart. New language runtimes, new APIs, your language's weird package manager is
+down again, all sorts of different things can change and render your dependencies
+broken.</p><p>You're probably going to be maintaining those dependencies in the long run
+anyway, so you might as well start early.
+<h2>7. If dependencies cannot be avoided, pick stable ones vs. cutting edge ones</h2></p><p>This one is simple, don't pick something unproven unless it doesn't really
+matter. That hot-shit compiles-to-CSS dont-call-it-CSS-language-of-the-month may
+not be there two years from now. This is, again, heavily tied into #2.</p><p>So these are my rules, for now. We'll see how I feel about them five or six
+years down the line.</p><p></p></div><!--<div id="disqus_thread"></div><script type="text/javascript">var disqus_shortname = 'olegdbblog';(function() {var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>--></div>
+
+
+        </div>
+    </body>
+</html>
