@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 from greshunkel.build import main
 from greshunkel.context import BASE_CONTEXT, build_blog_context

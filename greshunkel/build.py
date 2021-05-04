@@ -84,7 +84,7 @@ def _render_loop(loop_obj, context):
     wombat = re.compile("xXx LOOP (?P<variable>[a-zA-S_]+) (?P<fancy_list>[a-zA-S_\$]+) xXx(?P<subloop>.*)xXx BBL xXx")
     shattered_loops = wombat.split(loop_str)
     if len(shattered_loops) != 1:
-        print "BEEP BEEP BEEP SUBLOOP DETECTED"
+        print("BEEP BEEP BEEP SUBLOOP DETECTED")
 
     i = 0
     for thing in context[loop_list]:
@@ -152,7 +152,7 @@ def parse_file(context, radical_file):
         elif "xXx LOOP " in stripped:
             variables = stripped.split("xXx")[1].strip().replace("LOOP ", "").split(" ")
             active_loops = active_loops + 1
-            print "We've entered timeskip {}!".format(variables[1])
+            print("We've entered timeskip {}!".format(variables[1]))
             if loop_stack is None:
                 loop_stack = {
                     "loop_depth": active_loops,
